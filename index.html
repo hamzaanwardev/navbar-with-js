@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAvbar with JAvaScript</title>
+    <style>
+        body {
+            background-color: red;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: green;
+        }
+        .navbar-nav {
+            list-style-type: none;
+            display: flex;
+        }
+        .navbar-nav li {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">Logo</a>
+        </div>
+        <div class="navbar">
+            <ul class="navbar-nav"></ul>
+        </div>
+    </header>
+    <script>
+        let navbar_nav = document.querySelector(".navbar-nav");
+        let nav_items = ["Home","About", "Our Services", "Contact Us"];
+        for (c = 0; c < nav_items.length; c++) {
+            let anchor = document.createElement("a");
+            anchor.innerText = nav_items[c];
+            let links = ["./", "about.php", "services.php", "contact.php"];
+            for (d = 0; d < links.length; d++) {
+                anchor.setAttribute("href", links[c]);
+            }
+
+
+            let list_item = document.createElement("li");
+            list_item.append(anchor);
+            navbar_nav.append(list_item);
+        }
+    </script>
+</body>
+</html>

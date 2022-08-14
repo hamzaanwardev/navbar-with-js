@@ -37,17 +37,31 @@
         let nav_items = ["Home","About", "Our Services", "Contact Us"];
         for (c = 0; c < nav_items.length; c++) {
             let anchor = document.createElement("a");
+            anchor.classList.add(`link-${c}`, `path`)
             anchor.innerText = nav_items[c];
             let links = ["./", "about.php", "services.php", "contact.php"];
-            for (d = 0; d < links.length; d++) {
-                anchor.setAttribute("href", links[c]);
-            }
+            // anchor.setAttribute("href", links[c]);
+
+            // console.log(nav_items[c], 'Nav Items');
+            // for (d = 0; d < links.length; d++) {
+            //     console.log(links[d],'Links with child loop')
+            //     console.log(links[c],'Links with parent loop')
+            //     anchor.setAttribute("href", links[c]);
+            // }
 
 
             let list_item = document.createElement("li");
             list_item.append(anchor);
             navbar_nav.append(list_item);
         }
+        const linkPaths = document.querySelectorAll('.path')
+        console.log(linkPaths)
+        let links = ["./", "about.php", "services.php", "contact.php"];
+
+        linkPaths.forEach((path, index) => {
+            console.log(path);
+            path.setAttribute("href", links[index]);
+        })
     </script>
 </body>
 </html>
